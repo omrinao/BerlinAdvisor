@@ -628,3 +628,10 @@ textarea#message{
 	font-size:30px;
 
 }
+
+#information{
+  margin: auto;
+  width: 50%;
+  border: 3px solid #1ff935;
+  padding: 10px;
+}
