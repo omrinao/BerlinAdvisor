@@ -6,47 +6,86 @@
         <h2><U>Register</U></h2><hr>
       </div>
       <div class="row contact-wrap">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-2">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
+          <form action="" name="loginForm" ng-submit="submit()" method="post" role="form"  novalidate>
             <div class="form-group">
-              <input type="text" name="fname" class="form-control" id="fname" placeholder="First Name" data-rule="minlen:2"
-                data-msg="Please enter at least 2 chars" />
+                  <input type="text" ng-model="userName" pattern="[a-zA-Z ]*" placeholder="User Name" class="form-control" name="userName" required ng-minlength="3" ng-maxlength="8">
+                  <span ng-show="loginForm.userName.$error.minlength">Minimum length is 3 </span>
+                  <span ng-show="loginForm.userName.$error.maxlength">Maximum length is 8 </span>
               <div class="validation"></div>
             </div>
             <div class="form-group">
-                <input type="text" name="lname" class="form-control" id="lname" placeholder="Last Name" data-rule="minlen:2"
-                  data-msg="Please enter at least 2 chars" />
+                  <input type="text" ng-model="firstName" pattern="[a-zA-Z ]*" placeholder="First Name" class="form-control" name="firstName" required>
+                  <span ng-show="loginForm.firstName.$error.pattern">Only letter are allowed </span>
+              </div>
+            <div class="form-group">
+                <input type="text" ng-model="lastName" pattern="[a-zA-Z ]*" name="lastName" class="form-control" placeholder="Last Name" required>
+                  <span ng-show="loginForm.lastName.$error.pattern">Only letter are allowed </span>
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                  <input type="text" name="country" class="form-control" id="country" placeholder="Country" data-rule="minlen:2"
-                    data-msg="Please enter at least 2 chars" />
+                  <input type="password" ng-model="password" pattern="[a-zA-Z0-9 ]*" name="password" class="form-control" placeholder="Password" required ng-minlength="5" ng-maxlength="10">
+                  <span ng-show="loginForm.password.$error.minlength">Minimum length is 5 </span>
+                  <span ng-show="loginForm.password.$error.maxlength">Maximum length is 10 </span>
+                  <span ng-show="loginForm.password.$error.pattern">Only letter and numbers are allowed  </span>
+                </div>
+              <div class="form-group">
+                  Country:
+                  <select ng-model="contry" name="contry" required>
+                      <option value="">
+                      <option value="Australia">Australia
+                      <option value="Bolivia">Bolivia
+                      <option value="China">China
+                      <option value="Denemark">Denemark
+                      <option value="Israel">Israel
+                      <option value="Latvia">Latvia
+                      <option value="Monaco">Monaco
+                      <option value="August">August
+                      <option value="Norway">Norway
+                      <option value="Panama">Panama
+                      <option value="Switzerland">Switzerland
+                      <option value="USA">USA
+                    </select>
+                    <span ng-show="loginForm.contry.$error.required">This is required! please choose a country </span>
+
                   <div class="validation"></div>
                 </div>
               <div class="form-group">
-              <input type="text" name="city" class="form-control" id="city" placeholder="City" data-rule="minlen:2"
-                data-msg="Please enter at least 2 chars" />
+                  <input type="text" ng-model="city" pattern="[a-zA-Z ]*" name="city" class="form-control" placeholder="City" required>
+                  <span ng-show="loginForm.city.$error.pattern">Only letter are allowed </span>
               <div class="validation"></div>
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email"
-                data-msg="Please enter a valid email" />
+                <input type="text" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" ng-model="email" name="email" class="form-control" placeholder="Email" required>
+                <span ng-show="loginForm.email.$error.pattern">Invalid email format </span>
               <div class="validation"></div>
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4"
-                data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
+            <div>
+              Choose at lease 2 fields of interests:<br>
+              <div class="form-group" id="FOI">
+                  <input type="checkbox" ng-click="checkFOIs()" id="sights" name="FOIs[]" >Sights<br>
+                  <input type="checkbox" ng-click="checkFOIs()" id="museums" name="FOIs[]">Museums<br>
+                  <input type="checkbox" ng-click="checkFOIs()" id="rastaurants" name="FOIs[]">Rastaurants<br>
+                  <input type="checkbox" ng-click="checkFOIs()" id="shopping" name="FOIs[]">Shopping<br>
+                  <div class="validation"></div>
+              </div>
             </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us"
-                placeholder="Message"></textarea>
-              <div class="validation"></div>
+            <div>
+                Please enter two question and two answers as a way you restore you password if needed:<br>
+                <div class="form-group">
+                    <input type="text" ng-model="Queston1" name="Queston1" class="form-control" placeholder="Qestion 1" required>
+                    <input type="text" ng-model="Answer1" name="Answer1" class="form-control" placeholder="Answer 1" required>
+                    <input type="text" ng-model="Queston2" name="Queston2" class="form-control" placeholder="Qestion 2" required>
+                    <input type="text" ng-model="Answer2" name="Answer2" class="form-control" placeholder="Answer 2" required>
+                    <div class="validation"></div>
+                </div>
+              </div>
+            <div class="text-center">
+              <button type="submit" ng-disabled="(loginForm.$invalid || notValid)" class="btn btn-primary btn-lg">Register</button>
+              
             </div>
-
-            <div class="text-center"><button type="submit" class="btn btn-primary btn-lg">Register</button></div>
             <br>
           </form>
         </div>
