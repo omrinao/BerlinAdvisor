@@ -38,11 +38,36 @@
     </div>
   </div>
 
+  <div class="container">
+      <div class="center">
+        <div class="col-md-6 col-md-offset-3">
+          <br><br>
+          <h2>Explore Berlin</h2>
+          <hr>
+        </div>
+      </div>
+    </div>
+      <div id="portfolio-items" class="portfolio-items">
+        <div ng-repeat="poi in POIs" class={{poi.CategoryName}}>
+          <div class="recent-work-wrap">
+            <img class="img-responsive" ng-src="{{poi.ImageURL}}" alt="">
+            <div class="overlay">
+              <div class="recent-work-inner">
+                <h3><U ng-bind="poi.POIName"></U></h3>
+                <p ng-bind="poi.Description"></p>
+                <a href="#!login" class="preview"><i class="fa fa-sign-in"></i>
+                  Login to View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/.portfolio-item-->
 
 <section id="about">
   <div class="container">
     <div class="center">
       <div class="col-md-6 col-md-offset-3">
+        <br><br><br><br>
         <h2>About Us</h2>
         <hr>
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
