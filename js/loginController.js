@@ -24,7 +24,9 @@ function($rootScope, $location, $window, $scope, $http) {
         }
         else{
           $rootScope.Logged = true;
-          $window.localStorage.setItem($scope.username,response.data);//response = token
+          $rootScope.loggedUser = $scope.username
+          console.log(response.data)
+          $window.localStorage.setItem($rootScope.loggedUser, response.data);//response = token
           $location.path("/poi");
         }
     }, function errorCallback(response) {
