@@ -636,7 +636,7 @@ textarea#message{
   padding: 10px;
 }
 
-#loginBtn{
+#loginBtn,#submitRegister{
   margin-left: 40%;
   margin-right: 2%;
   margin-top: 2%; 
@@ -655,6 +655,7 @@ textarea#message{
   color: #000;
 }
 
-#loginBtn:hover, #restoreBtn:hover{
+#loginBtn:hover, #restoreBtn:hover,#submitRegister:hover{
   background: #6bff7a;
 }
+
