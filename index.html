@@ -23,7 +23,7 @@
     <div class="container">
       <div class="row">
         <div class="site-logo">
-          <a href="index.html" class="brand"><img alt="Logo" src="images/Logo.png"></a>
+          <a class="brand"><img alt="Logo" src="images/Logo.png"></a>
         </div>
 
         <div class="navbar-header">
@@ -34,10 +34,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#!">Home</a></li>
-            <li><a id="POI" href="#!poi">Points of Interests</a></li>
-            <li><a id="regBtn" href="#!register">Register</a></li>
-            <li><a id="logBtn" href="#!login">Login</a></li>
+            <li><a ng-hide="Logged" href="#!">Home</a></li>
+            <li><a ng-show="Logged" id="POI" href="#!poi">Home</a></li>
+            <li><a ng-hide="Logged" href="#!register">Register</a></li>
+            <li><a ng-hide="Logged" id="logBtn" href="#!login">Login</a></li>
+            <li><a ng-show="Logged" ng-click="logOut()" id="logoutBtn" href="#!">Logout</a></li>
           </ul>
         </div>
         <!-- /.Navbar-collapse -->
