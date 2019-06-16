@@ -12,19 +12,16 @@
               <div id="errormessage"></div>
               <form id="login" action="" method="post" role="form" class="contactForm">
                 <div class="form-group">
-                  <input type="text" name="username" class="form-control" id="username" placeholder="User Name" data-rule="minlen:2"
+                  <input id="loginUserName" type="text" ng-model="username" name="usernameTxtBox" class="form-control" id="usernameTxtBox" placeholder="User Name" data-rule="minlen:2"
                     data-msg="Please enter at least 2 chars" />
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" data-rule="minlen:2"
+                    <input id="loginPassword" type="password" ng-model="password" name="passwordTxtBox" class="form-control" id="passwordTxtBox" placeholder="Password" data-rule="minlen:2"
                       data-msg="Please enter at least 2 chars" />
                     <div class="validation"></div>
                   </div>
-  
-                <div class="text-center"><button ng-click="tryLogin()" class="btn btn-primary btn-lg">Login</button></div>
-                <div class="text-center"><button ng-click="restorePass()" class="btn btn-primary btn-lg">Restore Password</button></div>
-                <br><br><br><br>
+                <br><br>
               </form>
             </div>
           </div>
@@ -33,4 +30,6 @@
         <!--/.container-->
       </div>
       <!--/#contact-page-->
+      <button id="loginBtn" ng-click="tryLogin()">Login</button>
+      <button id="restoreBtn" ng-click="restorePass()">Restore Password</button>
     </section>
