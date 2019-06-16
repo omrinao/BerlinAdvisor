@@ -1,52 +1,40 @@
-angular.module('myApp').controller('loginController', ['$location', '$window', '$scope','$http', 
-function($location, $window, $scope, $http) {
+angular.module('myApp').controller('loginController', ['$rootScope', '$location', '$window', '$scope','$http', 
+function($rootScope, $location, $window, $scope, $http) {
+    let serverUrl='http://localhost:3000/';
     
     $scope.tryLogin = function(){
-        var user = document.getElementById("username").value;
-        var pass = document.getElementById("password").value;
-        let serverUrl='http://localhost:3000/';
-        /*
-        function successTryLogin(response){
-          if (response == "Wrong User Name Or Password"){
-            $location.path("../pages/constIndex.html");
-          }
-          else{
-            $window.LocalStorage.setItem(user,response);//response = token
-            $location.path("../pages/constIndex.html");
-          }
+      if ($scope.username == null || $scope.password == null || $scope.username == "" || $scope.password == ""){
+        alert("Please enter user name and password")
+      }
+      else $http.post(serverUrl + "login", { "UserName": $scope.username , "Password": $scope.password }, {"headers": {
+        'Content-Type': 'application/json', 
+      }}).then(function successCallback(response) {
+        if (response.data == "Wrong User Name Or Password"){
+          $window.alert("Wrong User Name Or Password");
+          $location.path("/login");
+          $scope.username = "";
+          $scope.password = "";
+
         }
+        else if (response.data == null || response.data.length < 1){
+          $window.alert("Wrong User Name Or Password");
+          $scope.username = "";
+          $scope.password = "";
+          $location.path("/login");
+        }
+        else{
+          $rootScope.Logged = true;
+          $window.localStorage.setItem($scope.username,response.data);//response = token
+          $location.path("/poi");
+        }
+    }, function errorCallback(response) {
+      $location.path("/login.html"); 
+    }); 
       
-        function errorTryLogin(response){
-          $location.path("../pages/constIndex.html"); 
-        }
-            
-        $http.post(serverUrl + "login", { UserName: user , Password: pass }, {headers: {
-          'Content-Type': 'application/json', 
-          'Accept': 'application/json' 
-      }}).then(successTryLogin, errorTryLogin);
-*/
-      var req = {
-        method: 'POST',
-        url: serverUrl + "login",
-        headers: {
-          'Content-Type': 'application/json', 
-          'Accept': 'application/json' 
-        },
-          data: { UserName: user , Password: pass }
-        }
-        $http(req).then(function successCallback(response) {
-          if (response == "Wrong User Name Or Password"){
-            $location.path("../pages/constIndex.html");
-          }
-          else{
-            $window.LocalStorage.setItem(user,response);//response = token
-            $location.path("../pages/constIndex.html");
-          }
-      }, function errorCallback(response) {
-        $location.path("../pages/constIndex.html"); 
-      });
-    
- 
+    }
+
+    $rootScope.logOut = function(){
+      $rootScope.Logged = false;
     }
 
     $scope.restorePass = function(){

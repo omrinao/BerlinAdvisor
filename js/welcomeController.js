@@ -1,5 +1,6 @@
-angular.module('myApp').controller('welcomeController', ['$scope','$http', function($scope, $http) {
+angular.module('myApp').controller('welcomeController', ['$rootScope', '$scope','$http', function($rootScope, $scope, $http) {
     let serverUrl='http://localhost:3000/';
+    $rootScope.notLogged = false;
     function successGetRandomPOI(response){
         data = response.data;
         for (var i = 0; i < data.length; i++){
