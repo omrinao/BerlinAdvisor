@@ -543,7 +543,7 @@ a.accordion-toggle  i{
   resize: none;
 }
 
-#username, #password{
+#loginUserName, #loginPassword{
   max-width: 40%;
   margin-left: 30%;
 }
@@ -634,4 +634,27 @@ textarea#message{
   width: 50%;
   border: 3px solid #1ff935;
   padding: 10px;
+}
+
+#loginBtn{
+  margin-left: 40%;
+  margin-right: 2%;
+  margin-top: 2%; 
+  background: #1ff935;
+  padding: 8px 20px;
+  border: 1px solid #000000 ;
+  color: #000;
+}
+
+#restoreBtn{
+  margin-right: 2%;
+  margin-top: 2%; 
+  background: #1ff935;
+  padding: 8px 20px;
+  border: 1px solid #000000 ;
+  color: #000;
+}
+
+#loginBtn:hover, #restoreBtn:hover{
+  background: #6bff7a;
 }
