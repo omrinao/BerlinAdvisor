@@ -38,6 +38,7 @@
             <li><a ng-show="Logged" id="POI" href="#!poi">Home</a></li>
             <li><a ng-hide="Logged" href="#!register">Register</a></li>
             <li><a ng-hide="Logged" id="logBtn" href="#!login">Login</a></li>
+            <li><a ng-show="Logged" ng-bind="loggedUser" id="logoutBtn"></a></li>
             <li><a ng-show="Logged" ng-click="logOut()" id="logoutBtn" href="#!">Logout</a></li>
           </ul>
         </div>
@@ -87,6 +88,7 @@
   <script src="contactform/contactform.js"></script>
   <script src="js/poiController.js"></script>
   <script src="js/loginController.js"></script>
+  <script src="js/register.js"></script>
   <script src="js/welcomeController.js"></script>
 </body>
 
