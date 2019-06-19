@@ -33,10 +33,11 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="menu">
-          <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
             <li><a ng-hide="Logged" href="#!">Home</a></li>
             <li><a ng-show="Logged" id="POI" href="#!poi">Home</a></li>
             <li><a ng-hide="Logged" href="#!register">Register</a></li>
+            <li><a ng-show="Logged" id="favoredBtn" ng-modal="NumOfSavedPOIs" href="#!poiSaved">favored Points: {{NumOfSavedPOIs}}</a></li>
             <li><a ng-hide="Logged" id="logBtn" href="#!login">Login</a></li>
             <li><a ng-show="Logged" ng-bind="loggedUser" id="logoutBtn"></a></li>
             <li><a ng-show="Logged" ng-click="logOut()" id="logoutBtn" href="#!">Logout</a></li>
@@ -86,10 +87,13 @@
   <script src="js/wow.min.js"></script>
   <script src="js/jquery.easing.min.js"></script>
   <script src="contactform/contactform.js"></script>
+  <script src="js/poiSavedController.js"></script>
   <script src="js/poiController.js"></script>
-  <script src="js/loginController.js"></script>
-  <script src="js/register.js"></script>
   <script src="js/welcomeController.js"></script>
+  <script src="js/loginController.js"></script>
+  <script src="js/registerController.js"></script>
+  
+  
 </body>
 
 </html>
