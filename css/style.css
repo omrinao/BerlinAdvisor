@@ -636,7 +636,7 @@ textarea#message{
   padding: 10px;
 }
 
-#loginBtn,#submitRegister{
+#loginBtn,#submitRegister,#backToPOIs,#submitBtn{
   margin-left: 40%;
   margin-right: 2%;
   margin-top: 2%; 
@@ -646,7 +646,7 @@ textarea#message{
   color: #000;
 }
 
-#restoreBtn{
+#restoreBtn,#submitBtn,#backBtn{
   margin-right: 2%;
   margin-top: 2%; 
   background: #1ff935;
@@ -655,7 +655,6 @@ textarea#message{
   color: #000;
 }
 
-#loginBtn:hover, #restoreBtn:hover,#submitRegister:hover{
+#loginBtn:hover, #restoreBtn:hover,#submitRegister:hover,#backToPOIs:hover,#submitBtn:hover,#backBtn:hover{
   background: #6bff7a;
 }
-
