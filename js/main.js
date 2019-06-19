@@ -80,5 +80,11 @@ app.config(['$routeProvider', function($routeProvider)  {
     .when('/login', {
       templateUrl: '../pages/login.html',
       controller : 'loginController'
-  })
+    })
+    // savedPoi
+    .when('/poiSaved', {
+      templateUrl: '../pages/poiSaved.html',
+      controller : 'poiSavedController'
+    })
+
 }]);
