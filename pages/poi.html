@@ -18,6 +18,7 @@
           <li><a class="btn btn-default" ng-click="getCatPOI('Museums')" data-filter=".museum">Museums</a></li>
           <li><a class="btn btn-default" ng-click="getCatPOI('Restaurants')" data-filter=".restaurant">Restaurants</a></li>
           <li><a class="btn btn-default" ng-click="getCatPOI('Shopping')" data-filter=".shopping">Shopping</a></li>
+          <li><a class="btn btn-default" ng-click="openSearchBox()" >Search points</a></li>
         </ul>
         <!--/#portfolio-filter-->
 
@@ -45,7 +46,7 @@
                 <h4 align="center">{{POIs.Description}}</h4><br>
                 <h4>{{POIs.Rank}}</h4><h4>{{POIs.numOfViews}}</h4>
                 <h4><U>Reviews:</U></h4>
-                <h5 ng-hide="noReview">{{POIs.Reviews}}</h5>
+                <h5 ng-hide="noReview">{{POIs.Reviews}}</h5><br><br>
                 <a class="preview" ng-show="noReview"><i class="fa fa-edit"></i>
                   {{POIs.Reviews}}</a> 
                   <br>
@@ -58,12 +59,13 @@
               <div class="center">
                 <div class="col-md-6 col-md-offset-3">
                   <br><br><br>
-                  <h2>Saved Recently</h2>
                   <hr>
+                  <h2>Saved Recently</h2>
                 </div>
               </div>
           </div>
           <div id="portfolio-items" class="portfolio-items">
+              <h1 ng-hide="noPOiSaved">No points saved yet, start to save some!</h1>
               <div class={{POI1.CategoryName}}>
                 <div class="recent-work-wrap" ng-hide="detailsView">
                   <img class="img-responsive" ng-src="{{POI1.ImageURL}}" alt="">
