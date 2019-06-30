@@ -629,6 +629,10 @@ textarea#message{
 
 }
 
+#regform{
+  margin-left: 20%;
+}
+
 #information{
   margin: auto;
   width: 50%;

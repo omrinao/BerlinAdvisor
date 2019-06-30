@@ -26,7 +26,6 @@ function($rootScope, $location, $window, $scope, $http) {
         else{
           $rootScope.Logged = true;
           $rootScope.loggedUser = $scope.username
-          console.log(response.data)
           $window.localStorage.setItem($rootScope.loggedUser, response.data);//response = token
           $location.path("/poi");
         }

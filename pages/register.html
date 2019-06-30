@@ -7,9 +7,7 @@
     </div>
     <div class="row contact-wrap">
       <div class="col-md-6 col-md-offset-2">
-        <div id="sendmessage">Your message has been sent. Thank you!</div>
-        <div id="errormessage"></div>
-        <form action="" name="loginForm" ng-submit="submit()" method="post" role="form"  novalidate>
+        <form id = "regform" action="" name="loginForm" method="post" role="form"  novalidate>
           <div class="form-group">
                 <input type="text" id="userName" pattern="[a-zA-Z ]*" ng-model="userName" pattern="[a-zA-Z ]*" placeholder="User Name" class="form-control" name="userName" required ng-minlength="3" ng-maxlength="8">
                 <span ng-show="loginForm.userName.$error.minlength">Minimum length is 3 </span>
@@ -27,14 +25,14 @@
           <div class="validation"></div>
           </div>
           <div class="form-group">
-                <input type="password" id="Password" ng-model="password" pattern="[a-zA-Z0-9 ]*" name="password" class="form-control" placeholder="Password" required ng-minlength="5" ng-maxlength="10">
+                <input type="password" id="Password" ng-model="rpassword" pattern="[a-zA-Z0-9 ]*" name="password" class="form-control" placeholder="Password" required ng-minlength="5" ng-maxlength="10">
                 <span ng-show="loginForm.password.$error.minlength">Minimum length is 5 </span>
                 <span ng-show="loginForm.password.$error.maxlength">Maximum length is 10 </span>
                 <span ng-show="loginForm.password.$error.pattern">Only letter and numbers are allowed  </span>
               </div>
             <div class="form-group">
                 Country:
-                <select ng-model="contry" id="Contry" name="contry" required>
+                <select ng-model="rcountry" id="Contry" name="contry" required>
                     <option value="">
                     <option value="Australia">Australia
                     <option value="Bolivia">Bolivia
@@ -59,28 +57,28 @@
             <div class="validation"></div>
           </div>
           <div class="form-group">
-              <input type="text" id="Email" ng-model="Email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" ng-model="email" name="email" class="form-control" placeholder="Email" required>
+              <input type="text" id="Email" ng-model="rEmail" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" ng-model="email" name="email" class="form-control" placeholder="Email" required>
               <span ng-show="loginForm.email.$error.pattern">Invalid email format </span>
             <div class="validation"></div>
           </div>
           <div>
             Choose at lease 2 fields of interests:<br>
             <div class="form-group" id="FOI">
-                <input type="checkbox" ng-model="sights" ng-click="checkFOIs()" id="sights" name="FOIs[]" >Sights<br>
-                <input type="checkbox" ng-model="museums" ng-click="checkFOIs()" id="museums" name="FOIs[]">Museums<br>
-                <input type="checkbox" ng-model="rastaurants" ng-click="checkFOIs()" id="rastaurants" name="FOIs[]">Rastaurants<br>
-                <input type="checkbox" ng-model="shopping" ng-click="checkFOIs()" id="shopping" name="FOIs[]">Shopping<br>
+                <input type="checkbox" ng-model="rSights" ng-click="checkFOIs()" id="sights" name="FOIs[]" >Sights<br>
+                <input type="checkbox" ng-model="rMuseums" ng-click="checkFOIs()" id="museums" name="FOIs[]">Museums<br>
+                <input type="checkbox" ng-model="rRastaurants" ng-click="checkFOIs()" id="rastaurants" name="FOIs[]">Rastaurants<br>
+                <input type="checkbox" ng-model="rShopping" ng-click="checkFOIs()" id="shopping" name="FOIs[]">Shopping<br>
                 <div class="validation"></div>
             </div>
           </div>
           <div>
               Please enter two question and two answers as a way you restore you password if needed:<br>
               <div class="form-group">
-                  <input type="text" ng-model="Queston1" id="Queston1" name="Queston1" class="form-control" placeholder="Qestion 1" required>
+                  <input type="text" ng-model="rQuestion1" id="Queston1" name="Queston1" class="form-control" placeholder="Qestion 1" required>
                   <span ng-show="loginForm.Queston1.$error.pattern">Invalid email format </span>
-                  <input type="text" ng-model="Answer1" id="Answer1" name="Answer1" class="form-control" placeholder="Answer 1" required>
-                  <input type="text" ng-model="Queston2" id="Queston2" name="Queston2" class="form-control" placeholder="Qestion 2" required>
-                  <input type="text" ng-model="Answer2" id="Answer2" name="Answer2" class="form-control" placeholder="Answer 2" required>
+                  <input type="text" ng-model="rAnswer1" id="Answer1" name="Answer1" class="form-control" placeholder="Answer 1" required>
+                  <input type="text" ng-model="rQuestion2" id="Queston2" name="Queston2" class="form-control" placeholder="Qestion 2" required>
+                  <input type="text" ng-model="rAnswer2" id="Answer2" name="Answer2" class="form-control" placeholder="Answer 2" required>
                   <div class="validation"></div>
               </div>
             </div>
@@ -96,6 +94,6 @@
   </div>
   <!--/.container-->
 </div>
-<button type="submit" ng-disabled="(loginForm.$invalid || notValid)" ng-click="submit()"  id="submitRegister" value="Submit" >Register</button>
-<!--/#contact-page-->
+<button ng-click="submitReg()"  id="submitRegister" value="Submit" >Register</button>
+<!-- ng-disabled="(loginForm.$invalid || notValid)" /#contact-page-->
 </section>
