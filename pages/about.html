@@ -1,0 +1,48 @@
+  <br><br><br>
+  
+  <div class="container">
+    <div class="center">
+      <div class="col-md-6 col-md-offset-3">
+        <br><br><br>
+        <h2>About Berlin</h2>
+        <hr>
+        </div>
+    </div>
+  </div>
+  <div class="about">
+        <p>The contrasts between historical buildings and modern architecture, between the traditional and the modern are what set the city apart from the rest. The sights of Berlin – from the Brandenburg Gate to the Federal Chancellery – tell the story of an entire nation. Germany's capital is home to all the major goverment buildings, most notably the historic Reichstag, seat of the German parliament.
+        </p>
+            <p>Berlin is a city of art, artists and museums. More than 170 museums, including those on the famous museum island, put the treasures of the world on public display. Culturally minded visitors from all corners of the globe come to Berlin to see performances by leading orchestras – such as the internationally celebrated Berlin Philharmonic – and to attend ballets and operas at the three major opera houses. A multitude of theatres specialising in plays, variety, revue and cabaret offer stage entertainment in all its forms.
+            </p><p>
+            The famous Kurfürstendamm, grand old Friedrichstrasse and the independent boutiques in and around the Hackesche Höfe offer endless scope for shopping.
+            </p><p>
+            Nowadays, people look to Berlin for the latest trends in lifestyle, music and art. Inspired by this outpouring of creativity, growing numbers of artists are arriving in the city from around the world, making it one of Europe's most exciting destinations.
+        </p><p>
+            But Berlin also has a relaxed vibe and lots of open spaces for a breath of fresh air. No city in Germany is greener than Berlin with its forests, lakes and sprawling parks. This laid-back way of life can be found throughout the city. When the weather gets warmer, life in Berlin moves outdoors to the beach bars, pavement cafés and open-air cinemas and theatres – perfect for enjoying the sunshine and the balmy summer nights.</p>
+        </p>
+    </div>
+  <br>
+  <div class="container">
+        <div class="center">
+          <div class="col-md-6 col-md-offset-3">
+            <br>
+            <h2>Must see in Berlin</h2>
+            <hr>
+            </div>
+        </div>
+      </div>
+    <div id="portfolio-items" class="portfolio-items">
+      <div ng-repeat="poi in POIs" class={{poi.CategoryName}}>
+        <div class="recent-work-wrap">
+          <img class="img-responsive" ng-src="{{poi.ImageURL}}" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+              <h3><U ng-bind="poi.POIName"></U></h3>
+              <p ng-bind="poi.Description"></p>
+              <a href="#!login" class="preview"><i class="fa fa-sign-in"></i>
+                Login to View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/.portfolio-item-->

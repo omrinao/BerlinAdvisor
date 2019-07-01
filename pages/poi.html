@@ -1,5 +1,23 @@
   <section id="portfolio">
-      <br><br><br><br>
+      <br><br><br><br><br>
+      <!-- The Review Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div id="aboutModalbody" class="modal-content">
+    <span class="close">&times;</span>
+    <h1 id="poiNameText" align=center></h1><br>
+    <h3>Rank: </h3> <output name="OutputName" id="OutputId">2</output>
+    <input type="range" style="width: 50%;" name="InputName" id="InputId" min="0" max="5" step="0.1" value="2" oninput="OutputId.value = InputId.value">
+    <br>
+    <h3>Review: </h3>
+    <textarea ng-model="rRev" id="reviewText" style="resize: none;" rows="4" cols="90" placeholder="Write description...">
+      </textarea>
+
+      <button id="reviewBtn">Send Review</button>
+  </div>
+
+</div>
     <div class="container">
       <div class="center">
         <div class="col-md-6 col-md-offset-3">
@@ -33,8 +51,10 @@
                     <p ng-bind="poi.Description"></p>
                     <a ng-click="getPOIInfo(poi.POIName)" class="preview"><i class="fa fa-eye"></i>
                       View Details</a>
-                      <a ng-click="savePOI(poi.POIName)" class="preview"><i class="fa fa-star"></i>
+                      <a ng-hide="inSavedPOI(poi.POIName)" ng-click="savePOI(poi.POIName)" class="preview"><i class="fa fa-thumbs-up"></i>
                         Add to Favorites</a> 
+                        <a ng-show="inSavedPOI(poi.POIName)" ng-click="removeFromList(poi.POIName)" class="preview"><i class="fa fa-thumbs-down"></i>
+                          Remove From Favorites</a> 
                   </div>
                 </div>
               </div>
@@ -47,15 +67,15 @@
                 <h4>{{POIs.Rank}}</h4><h4>{{POIs.numOfViews}}</h4>
                 <h4><U>Reviews:</U></h4>
                 <h5 ng-hide="noReview">{{POIs.Reviews}}</h5><br><br>
-                <a class="preview" ng-show="noReview"><i class="fa fa-edit"></i>
-                  {{POIs.Reviews}}</a> 
+                <h4 ng-show="noReview" id="noReviewBtn" class="preview" ><i class="fa fa-edit"></i>
+                  No reviews yet!</h4> 
                   <br>
+                  <input id="writeReview" type="button" ng-click="display_review_page(POIs.POIName)" value="Write Review"/>
               </div>
+              
           </div>
-          
 
-          
-          <div class="container">
+          <div class="container" ng-hide="detailsView">
               <div class="center">
                 <div class="col-md-6 col-md-offset-3">
                   <br><br><br>
@@ -64,10 +84,10 @@
                 </div>
               </div>
           </div>
-          <div id="portfolio-items" class="portfolio-items">
+          <div id="portfolio-items" class="portfolio-items" ng-hide="detailsView">
               <h1 ng-hide="noPOiSaved">No points saved yet, start to save some!</h1>
               <div class={{POI1.CategoryName}}>
-                <div class="recent-work-wrap" ng-hide="detailsView">
+                <div class="recent-work-wrap">
                   <img class="img-responsive" ng-src="{{POI1.ImageURL}}" alt="">
                   <div class="overlay">
                     <div class="recent-work-inner">
@@ -75,8 +95,10 @@
                       <p ng-bind="POI1.Description"></p>
                       <a ng-click="getPOIInfo(POI1.POIName)" class="preview"><i class="fa fa-eye"></i>
                         View Details</a>
-                        <a ng-click="savePOI(POI1.POIName)" class="preview"><i class="fa fa-star"></i>
-                          Add to Favorites</a> 
+                      <a ng-hide="inSavedPOI(POI1.POIName)" ng-click="savePOI(POI1.POIName)" class="preview"><i class="fa fa-thumbs-up"></i>
+                        Add to Favorites</a> 
+                        <a ng-show="inSavedPOI(POI1.POIName)" ng-click="removeFromList(POI1.POIName)" class="preview"><i class="fa fa-thumbs-down"></i>
+                          Remove From Favorites</a> 
                     </div>
                   </div>
                 </div>
@@ -94,8 +116,10 @@
                           <p ng-bind="POI2.Description"></p>
                           <a ng-click="getPOIInfo(POI2.POIName)" class="preview"><i class="fa fa-eye"></i>
                             View Details</a>
-                            <a ng-click="savePOI(POI2.POIName)" class="preview"><i class="fa fa-star"></i>
+                            <a ng-hide="inSavedPOI(POI2.POIName)" ng-click="savePOI(POI2.POIName)" class="preview"><i class="fa fa-thumbs-up"></i>
                               Add to Favorites</a> 
+                              <a ng-show="inSavedPOI(POI2.POIName)" ng-click="removeFromList(POI2.POIName)" class="preview"><i class="fa fa-thumbs-down"></i>
+                                Remove From Favorites</a> 
                         </div>
                       </div>
                     </div>
@@ -104,9 +128,6 @@
                   <!--/.portfolio-item-->
 
         </div>
-        
-        
-
       </div>
     </div>
   </section>

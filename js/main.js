@@ -87,4 +87,10 @@ app.config(['$routeProvider', function($routeProvider)  {
       controller : 'poiSavedController'
     })
 
+    // about
+    .when('/about', {
+      templateUrl: '../pages/about.html',
+      controller : 'welcomeController'
+    })
+
 }]);

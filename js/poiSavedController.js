@@ -12,7 +12,7 @@ function($window, $rootScope, $scope, $http) {
       }
 
   function successGetSavedPOI(response){
-    if (response.data === "no pois saved in this category")
+    if (response == null || response.data == null || response.data === "no pois saved in this category")
         {
           $scope.NoPoisView = true;
         }

@@ -7,7 +7,7 @@
     </div>
     <div class="row contact-wrap">
       <div class="col-md-6 col-md-offset-2">
-        <form id = "regform" action="" name="loginForm" method="post" role="form"  novalidate>
+        <form action="" name="loginForm" ng-submit="submitReg()" method="post" role="form" id="regform" novalidate>
           <div class="form-group">
                 <input type="text" id="userName" pattern="[a-zA-Z ]*" ng-model="userName" pattern="[a-zA-Z ]*" placeholder="User Name" class="form-control" name="userName" required ng-minlength="3" ng-maxlength="8">
                 <span ng-show="loginForm.userName.$error.minlength">Minimum length is 3 </span>
@@ -74,10 +74,10 @@
           <div>
               Please enter two question and two answers as a way you restore you password if needed:<br>
               <div class="form-group">
-                  <input type="text" ng-model="rQuestion1" id="Queston1" name="Queston1" class="form-control" placeholder="Qestion 1" required>
+                  <input type="text" ng-model="rQuestion1" id="Queston1" name="Queston1" class="form-control" placeholder="Question 1" required>
                   <span ng-show="loginForm.Queston1.$error.pattern">Invalid email format </span>
                   <input type="text" ng-model="rAnswer1" id="Answer1" name="Answer1" class="form-control" placeholder="Answer 1" required>
-                  <input type="text" ng-model="rQuestion2" id="Queston2" name="Queston2" class="form-control" placeholder="Qestion 2" required>
+                  <input type="text" ng-model="rQuestion2" id="Queston2" name="Queston2" class="form-control" placeholder="Question 2" required>
                   <input type="text" ng-model="rAnswer2" id="Answer2" name="Answer2" class="form-control" placeholder="Answer 2" required>
                   <div class="validation"></div>
               </div>
@@ -94,6 +94,6 @@
   </div>
   <!--/.container-->
 </div>
-<button ng-click="submitReg()"  id="submitRegister" value="Submit" >Register</button>
-<!-- ng-disabled="(loginForm.$invalid || notValid)" /#contact-page-->
+<button type="submit" ng-disabled="(loginForm.$invalid || notValid)" id="submitRegister" ng-click="submitReg()" value="Submit" >Register</button>
+<!--  /#contact-page-->
 </section>
