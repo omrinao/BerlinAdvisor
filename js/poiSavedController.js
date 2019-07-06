@@ -109,12 +109,14 @@ function($window, $rootScope, $scope, $http) {
           max = data[j].Rank
         }
       }
-      data = $scope.swap(data,i,index)
+      if (max > 0){
+        data = $scope.swap(data,i,index)
+      }
       max = 0;
       index = i;
     }
     $scope.POIs = data
-    successGetSavedPOI()
+    showSortedPOIS(data)
   }
 
   
@@ -150,5 +152,20 @@ function($window, $rootScope, $scope, $http) {
 
       $http(req).then(successGetSavedPOI, errorRemovePOI);
   }
+
+  function showSortedPOIS(data){
+      $scope.detailsView = false;
+      $scope.NoPoisView = false;
+      
+  
+      for (var i = 0; i < data.length; i++){
+          data[i].POIName = data[i].POIName.replace(/\s*$/,'');
+          data[i].CategoryName = "portfolio-item " + data[i].CategoryName.replace(/\s*$/,'') + " all col-xs-12 col-sm-4 col-md-3";
+          data[i].Description = data[i].Description.replace(/\s*$/,'');
+      }
+      $scope.POIs = data
+      $rootScope.NumOfSavedPOIs = data.length;
+  }
+
 
   }]);
