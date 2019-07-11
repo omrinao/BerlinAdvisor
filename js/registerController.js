@@ -30,18 +30,18 @@ angular.module("myApp").controller("registerController", function ($scope,$http,
 
 
   $scope.notValid = true;
-  $scope.checkFOIs = function(){
+  $scope.checkFOIs = function(event){
     var counter = 0
-    if ($scope.rSights != null && $scope.rSights == true){
+    if (($scope.rSights !== true && event.target.id === 'sights') || ($scope.rSights === true && event.target.id !== 'sights')){
       counter++
     }
-    if ($scope.rMuseums != null && $scope.rMuseums == true){
+    if (($scope.rMuseums !== true && event.target.id === 'museums') || ($scope.rMuseums === true && event.target.id !== 'museums')){
       counter++
     }
-    if ($scope.rRestaurants != null && $scope.rRestaurants == true){
+    if (($scope.rRastaurants !== true && event.target.id === 'rastaurants') || ($scope.rRastaurants === true && event.target.id !== 'rastaurants')){
       counter++
     }
-    if ($scope.rShopping != null && $scope.rShopping == true){
+    if (($scope.rShopping !== true && event.target.id === 'shopping') || ($scope.rShopping === true && event.target.id !== 'shopping')){
       counter++
     }
     if (counter <= 1){
